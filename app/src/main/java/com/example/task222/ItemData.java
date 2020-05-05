@@ -1,24 +1,22 @@
 package com.example.task222;
 
-import android.graphics.drawable.Drawable;
-import android.widget.Button;
 
-public class ItemData {
-    private Drawable image;
+import java.io.Serializable;
+
+public class ItemData implements Serializable {
+    private int image;
     private String title;
     private String subtitle;
-    private boolean checked;
 
 
-    public ItemData(Drawable image, String title, String subtitle, boolean checked) {
+    public ItemData(int image, String title, String subtitle) {
         this.image = image;
         this.title = title;
         this.subtitle = subtitle;
-        this.checked = checked;
 
     }
 
-    public Drawable getImage() {
+    public Integer getImage() {
         return image;
     }
 
@@ -30,12 +28,10 @@ public class ItemData {
         return subtitle;
     }
 
-    public boolean isChecked() {
-        return checked;
-    }
 
-    public void setChecked(boolean checked) {
-        this.checked = checked;
+    @Override
+    public String toString() {
+        return "image: " + this.image + ", title: " + this.title + ", subtitle: " + this.subtitle + " \n";
     }
 
     }

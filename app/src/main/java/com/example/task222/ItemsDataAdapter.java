@@ -1,13 +1,12 @@
 package com.example.task222;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,16 +19,7 @@ public class ItemsDataAdapter extends BaseAdapter {
     private List<ItemData> items;
 
 
-
     private LayoutInflater inflater;
-
-
-    private CompoundButton.OnCheckedChangeListener myCheckChangeList
-            = new CompoundButton.OnCheckedChangeListener() {
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            items.get((Integer) buttonView.getTag()).setChecked(isChecked);
-        }
-    };
 
 
 
@@ -53,11 +43,17 @@ public class ItemsDataAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
+    void addItems(List<ItemData> items){
+        this.items.addAll(items);
+    }
+
 
     @Override
     public int getCount() {
         return items.size();
     }
+
+
 
     @Override
     public ItemData getItem(int position) {
@@ -73,6 +69,7 @@ public class ItemsDataAdapter extends BaseAdapter {
         return position;
     }
 
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
@@ -87,17 +84,22 @@ public class ItemsDataAdapter extends BaseAdapter {
         TextView subtitle = view.findViewById(R.id.subtitle);
         final Button button = view.findViewById(R.id.button);
 
-        image.setImageDrawable(itemData.getImage());
+        image.setImageResource(itemData.getImage());
         title.setText(itemData.getTitle());
         subtitle.setText(itemData.getSubtitle());
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                items.remove(position);
-                notifyDataSetChanged();
+                removeItem(position);
             }
         });
 
         return view;
     }
+
+    public List<ItemData> getItems() {
+        return items;
+    }
+
+
 }
