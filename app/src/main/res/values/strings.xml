@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Task421</string>
+    <string name="settings">Настройки</string>
+    <string name="books">Записная книжка</string>
+    <string name="goalTime">Сроки задач</string>
+    <string name="open_goals">Открыт планировщик задач</string>
+    <string name="open_book">Открыта записная книжка</string>
+    <string name="save_btm">Сохранить</string>
+    <string name="save_date">данные сохранены</string>
+    <string name="but_start">Дата-время старта задачи:</string>
+    <string name="but_end">Дата-время окончания задачи:</string>
+    <string name="but_ok">OK</string>
+    <string name="but_name_del">удалить</string>
+</resources>
